@@ -5,15 +5,33 @@
     <title>Title</title>
 </head>
 <body>
-<ol>
-{% for user in user_list %}
-        <li>USER DETAILS</li>
-        <ul>
-        <li>{{ user.first_name }}</li>
-        <li>{{ user.last_name }}</li>
-        <li>  {{ user.email_id }}</li>
-        </ul>
-{% endfor %}
-</ol>
+{#<ol>#}
+{#{% for user in user_list %}#}
+{#    <li>USER DETAILS</li>#}
+{#    <ul>#}
+{#    <li>First Name{{ user.first_name }}</li>#}
+{#    <li>Last Name{{ user.last_name }}</li>#}
+{#    <li>Email{{ user.email_id }}</li>#}
+{#    </ul>#}
+{#{% endfor %}#}
+{#</ol>#}
+{% if user_list %}
+    <table>
+    <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    </thead>
+    {% for user in user_list %}
+    <tr>
+    <td>{{ user.first_name }}</td>
+    <td>{{ user.last_name }}</td>
+    <td>{{ user.email_id }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <h1>NO RECORDS FOUND</h1>
+{% endif %}
 </body>
 </html>
